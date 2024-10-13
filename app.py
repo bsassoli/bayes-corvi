@@ -117,7 +117,7 @@ st.markdown(r'''
 st.markdown('''
             ### 4. E quindi?
 
-Il teorema di Bayes, che come abbiamo visto è una sorta di conseguenza banalissima delle leggi fondamentali della probabilità, (ricordate che la sua dimostrazione non chiede altro che la definizione di probabilità condizionata) cattura moltissime delle nostre intuizioni sulla relazione tra evidenza empirica ed evoluzione delle credenze nella probabilità di un'ipotesi.
+Il teorema di Bayes, che come abbiamo visto è una sorta di conseguenza banalissima delle leggi fondamentali della probabilità (ricordate che la sua dimostrazione non chiede altro che la definizione di probabilità condizionata), cattura moltissime delle nostre intuizioni sulla relazione tra evidenza empirica ed evoluzione delle credenze nella probabilità di un'ipotesi.
 
 Più specificamente, per esempio:
 
@@ -127,6 +127,7 @@ Più specificamente, per esempio:
 4.	Se un’ipotesi è coerente con l’evidenza, la sua probabilità non può mai scendere a zero, anche se può avvicinarsi a zero quanto si desidera (come accadrebbe alla probabilità di $h_{2}$ se venissero osservati solo corvi neri).
 5.	A mano a mano che un’ipotesi diventa dominante, nel senso che la sua probabilità si avvicina a uno, il suo incremento di probabilità derivante da ulteriori predizioni di successo diminuisce (anche se c’è sempre un incremento).
             ''')
+
 
 def update_probabilities(hypotheses, num_observations):
     probabilities = np.ones(3) / 3  # Initial equal probabilities
@@ -168,6 +169,7 @@ def plot_probabilities(num_observations):
     plt.tight_layout()
     return fig, prob_history, c_e_history
 
+
 with right_column:
     st.write("Questo è un'applicazione interattiva per simulare il teorema di Bayes con un esempio pratico realizzata per il corso di Introduzione al Ragionamento Scientifico, A.A. 2024/2025, Università di Milano.")
     num_observations = st.slider('Numero di corvi neri osservati:', min_value=0, max_value=20, value=4, step=1)
@@ -176,10 +178,10 @@ with right_column:
     st.pyplot(fig)
 
     st.write(f"Probabilità dopo {num_observations} osservazioni:")
-    st.write(f"$h_1$ (tutti neri): {prob_history[-1, 0]:.4f}")
-    st.write(f"$h_2$ (metà neri): {prob_history[-1, 1]:.4f}")
-    st.write(f"$h_3$ (nessuno nero): {prob_history[-1, 2]:.4f}")
+    st.write(f"$h_1$ (tutti neri): {prob_history[-1, 0]:.10f}")
+    st.write(f"$h_2$ (metà neri): {prob_history[-1, 1]:.10f}")
+    st.write(f"$h_3$ (nessuno nero): {prob_history[-1, 2]:.10f}")
 
     hypotheses = np.array([1.0, 0.5, 0.0])
     next_raven_black_prob = np.sum(hypotheses * prob_history[-1])
-    st.write(f'Credenza che il prossimo corvo sarà nero: {next_raven_black_prob:.8f}')
+    st.write(f'Credenza che il prossimo corvo sarà nero: {next_raven_black_prob:.10f}')
