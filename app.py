@@ -172,7 +172,7 @@ def plot_probabilities(num_observations):
 
 with right_column:
     st.write("Questo è un'applicazione interattiva per simulare il teorema di Bayes con un esempio pratico realizzata per il corso di Introduzione al Ragionamento Scientifico, A.A. 2025/2026, Università di Milano.")
-    st.htnml('<a href="mailto:bernardino.sassoli@unimi.it">Bernardino Sassoli !</a>')
+    st.html('<a href="mailto:bernardino.sassoli@unimi.it">Bernardino Sassoli !</a>')
     num_observations = st.slider('Numero di corvi neri osservati:', min_value=0, max_value=20, value=4, step=1)
 
     fig, prob_history, c_e_history = plot_probabilities(num_observations)
